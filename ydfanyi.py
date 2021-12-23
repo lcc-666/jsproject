@@ -4,13 +4,14 @@ import time
 from hashlib import md5
 import re
 
+#规范请求头
 def str2dict(formstr):
     form = {}
     r = re.findall(r'(.*?):(.*?)\n', formstr)
     for i in r:
         form[i[0].strip()] = i[1].strip()
     return form
-
+#构造请求头
 head="""Accept: application/json, text/javascript, */*; q=0.01
 Accept-Encoding: gzip, deflate, br
 Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
@@ -39,7 +40,7 @@ str_="fanyideskweb" + word + salt + "Y2FYu%TNSbMCxc3t2u^XT"
 md=md5()
 md.update(str_.encode())
 sign=md.hexdigest()
-
+#添加加密数据
 data={
     'i': word,
     'from': 'AUTO',
