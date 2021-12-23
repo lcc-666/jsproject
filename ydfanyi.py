@@ -35,7 +35,7 @@ X-Requested-With: XMLHttpRequest"""
 headers=str2dict(head)
 salt=str(int(time.time()*10000))+str(random.randint(0,9))
 lts=str(int(time.time()*10000))
-word=input("请输入要翻译的单词")
+word=input("请输入要翻译的单词\n")
 str_="fanyideskweb" + word + salt + "Y2FYu%TNSbMCxc3t2u^XT"
 md=md5()
 md.update(str_.encode())
