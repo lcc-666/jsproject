@@ -1,3 +1,4 @@
+#有道翻译破解
 import requests
 import random
 import time
