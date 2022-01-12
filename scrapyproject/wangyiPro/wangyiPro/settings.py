@@ -1,4 +1,4 @@
-# Scrapy settings for firstBlood project
+# Scrapy settings for wangyiPro project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,17 +7,19 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'firstBlood'
+BOT_NAME = 'wangyiPro'
 
-SPIDER_MODULES = ['firstBlood.spiders']
-NEWSPIDER_MODULE = 'firstBlood.spiders'
+SPIDER_MODULES = ['wangyiPro.spiders']
+NEWSPIDER_MODULE = 'wangyiPro.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'firstBlood (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
+
+LOG_LEVEL='ERROR'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -45,14 +47,14 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'firstBlood.middlewares.FirstbloodSpiderMiddleware': 543,
+#    'wangyiPro.middlewares.WangyiproSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'firstBlood.middlewares.FirstbloodDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   'wangyiPro.middlewares.WangyiproDownloaderMiddleware': 543,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -62,9 +64,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'firstBlood.pipelines.FirstbloodPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'wangyiPro.pipelines.WangyiproPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

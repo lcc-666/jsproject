@@ -8,6 +8,7 @@
 from itemadapter import ItemAdapter
 
 
-class FirstbloodPipeline:
+class WangyiproPipeline:
     def process_item(self, item, spider):
+        print(item)
         return item
