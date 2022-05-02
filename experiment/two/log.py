@@ -1,5 +1,5 @@
 """
-我已经手动确定了驱动的路径，不需要将其配置到python解释环境之中
+我已经手动确定了驱动的路径，不需要将其配置到python解释环境之中，需要将log同目录下的chromedriver一同拷贝
 chrome版本采用最新的101
 selenium使用selenium3，如果使用selenium4会出现兼容问题
 """
