@@ -1,4 +1,5 @@
 import yt_dlp
+import ffmpy3
 import os
 
 
@@ -21,16 +22,18 @@ def tomp4(Path):
             continue
         old = Path + item
         new = Path + item.split(".")[0] + '.mp4'
-        #ffmpeg的bin目录
+        # ffmpeg的bin目录
         FFmpeg = r"E:\ffmpeg\bin\ffmpeg.exe"
-        cmd = FFmpeg + " -i {} {}".format(old, new)
-        os.system(cmd)
-        # os.remove(old)
-
+        ff = ffmpy3.FFmpeg(
+            executable=FFmpeg,
+            inputs={old: None},
+            outputs={new: None}
+        )
+        ff.run()
 
 if __name__ == '__main__':
     # url:youtube视频链接
-    url = "https://www.bilibili.com/video/BV1wu411r7tu?spm_id_from=333.851.b_7265636f6d6d656e64.1"
+    url = "https://www.bilibili.com/video/BV1344y1379Q?spm_id_from=333.1007.extension.content.click"
     # Path:存储目录，最好是空的
     Path = r"D:\learn\video"
     down(url, Path)
