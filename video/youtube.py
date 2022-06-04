@@ -3,15 +3,18 @@ import ffmpy3
 import os
 
 
-def down(url, Path):
+def down(url, path):
     url = url
-    Path = Path + "\\"
+    if os.name == "nt":
+        path = path + "\\"
+    else:
+        path = path + "/"
     opts = {
-        "outtmpl": Path + '%(title)s.%(ext)s'
+        "outtmpl": path + '%(title)s.%(ext)s'
     }
     ydl = yt_dlp.YoutubeDL(opts)
     ydl.download([url])
-    tomp4(Path)
+    # tomp4(Path)
 
 
 def tomp4(Path):
@@ -31,9 +34,10 @@ def tomp4(Path):
         )
         ff.run()
 
+
 if __name__ == '__main__':
     # url:youtube视频链接
-    url = "https://www.bilibili.com/video/BV1344y1379Q?spm_id_from=333.1007.extension.content.click"
+    Url = input("请输入视频地址\n")
     # Path:存储目录，最好是空的
-    Path = r"D:\learn\video"
-    down(url, Path)
+    Path = input("请输入存储目录\n")
+    down(Url, Path)
